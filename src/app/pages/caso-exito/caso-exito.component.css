@@ -1,0 +1,59 @@
+.texto{
+    font-size: large;
+    font-weight: 600;
+    font-stretch: narrower;
+    
+}
+body{
+    background-color: transparent;
+    margin: 0;
+    padding: 20px;
+}
+
+.contenedor{
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+    margin: 20px 0;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.parallax{
+    background-image: url(../../../assets/img/equipo.jpg);
+    position: absolute;
+    background-attachment: fixed;
+    height: 90vh;
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+}
+.header{
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.texto1{
+    margin-top: 4%;
+    color: #fff;
+    font-size:40px ;
+}
+.texto2{
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    padding-left: 10%;
+   /* <!-- 
+    
+    color:#fff;
+    font-weight: 600;
+    
+    text-decoration: none;
+    */
+
+}
