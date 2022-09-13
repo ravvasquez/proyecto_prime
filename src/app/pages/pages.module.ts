@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import {ButtonModule} from 'primeng/button';
+import {DialogModule} from 'primeng/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {InputTextModule} from 'primeng/inputtext';
 import { InicioComponent } from './inicio/inicio.component';
 import { ContactoComponent } from './contacto/contacto.component';
-import { ServiciosComponent } from './servicios/servicios.component';
-import { EquipoComponent } from './equipo/equipo.component';
-import { CasoExitoComponent } from './caso-exito/caso-exito.component';
+import { AdminComponent } from './admin/admin.component';
+import { ComponentesModule } from '../componentes/componentes.module';
+
 
 
 
@@ -12,19 +17,20 @@ import { CasoExitoComponent } from './caso-exito/caso-exito.component';
   declarations: [
     InicioComponent,
     ContactoComponent,
-    ServiciosComponent,
-    EquipoComponent,
-    CasoExitoComponent
+    AdminComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ButtonModule,
+    DialogModule,
+    BrowserAnimationsModule,
+    InputTextModule,
+    ComponentesModule
   ],
   exports:[
     InicioComponent,
     ContactoComponent,
-    ServiciosComponent,
-    EquipoComponent,
-    CasoExitoComponent
+    AdminComponent
   ]
 })
 export class PagesModule { 
