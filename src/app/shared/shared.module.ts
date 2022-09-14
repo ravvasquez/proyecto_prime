@@ -4,7 +4,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {MenubarModule} from 'primeng/menubar';
 import {ButtonModule} from 'primeng/button';
-
+import {InputTextModule} from 'primeng/inputtext';
+import {DialogModule} from 'primeng/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,13 +18,19 @@ import {ButtonModule} from 'primeng/button';
   imports: [
     CommonModule,
     MenubarModule,
-    ButtonModule
+    ButtonModule,
+    InputTextModule,
+    DialogModule,
+    ReactiveFormsModule
   ],
   exports: [
     FooterComponent,
     HeaderComponent,
     MenubarModule,
-    ButtonModule
+    ButtonModule,
+    InputTextModule,
+    DialogModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { 

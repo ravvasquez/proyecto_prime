@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Libro } from 'src/app/models/libro';
-import { LibrosService } from 'src/app/servicios/libro-servi/libros.service';
 
+import { CardsModel } from 'src/app/models/cards-model';
+import { CardsService } from 'src/app/servicios/card-servi/cards.service';
 
 @Component({
   selector: 'app-inicio',
@@ -21,39 +21,13 @@ export class InicioComponent implements OnInit {
   modalVisible:boolean=false;
 
 
-  coleccionDeLibros:Libro[]
+  cards: CardsModel [];
 
-  constructor(private servicioLibros:LibrosService) { }
+  constructor(private servicioCards:CardsService) { }
 
   ngOnInit(): void {
-    this.servicioLibros.obtenerLibros().subscribe(libro=> this.coleccionDeLibros=libro
-
-
-    )
-  }
-
-  agregarLibro(){
-    let nuevoLibro:Libro ={
-      titulo: "el gato con botas",
-      editorial: "salamandra",
-      autor:"juan caceres",
-      ISBN: 382098759209,
-      idLibro:""
-    }
-
-    this.servicioLibros.crearLibro(nuevoLibro).then((libro)=>{
-      alert("el libro fue agregado con exito")
-
-    })
-    .catch((error)=>{
-      alert("el libro no pudo ser cargado\nEroor: "+error)
-    }
-    )
-
-  }
-
-  mostrarDialogo(){
-    this.modalVisible=true;
+    this.servicioCards.obtenerCards().subscribe(p=>{this.cards=p 
+      console.log(this.cards)})
   }
 
 }

@@ -1,10 +1,10 @@
-<p-card header="Advanced Card" subheader="Card Subheader" [style]="{width: '360px'}" styleClass="p-card-shadow">
+<p-card *ngFor="let i of datosCard" [style]="{width: '360px',margin: '20px'}" styleClass="p-card-shadow">
+    <h3>{{i.nombre}}</h3>
+    
     <ng-template pTemplate="header">
-        <img alt="Card" src="https://images.pagina12.com.ar/styles/focal_3_2_470x313/public/2022-09/646975-whatsapp-20image-202022-09-11-20at-2019-04-11.jpeg?itok=F36xmrLe">
+        <img alt="Card" src="{{i.url}}">
     </ng-template>
-    <p>La tenes adentro gallina</p>
     <ng-template pTemplate="footer">
-        <p-button label="Save" icon="pi pi-check"></p-button>
-        <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}"></p-button>
+        <p><b>precio:</b> {{i.precio}}</p>
     </ng-template>
 </p-card>

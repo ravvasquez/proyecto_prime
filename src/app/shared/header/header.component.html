@@ -1,8 +1,30 @@
-<p-menubar [model]="items">
-    <ng-template pTemplate="start">
-        <img src="assets/showcase/images/primeng.svg" height="40" class="mr-2">
+<p-menubar [model]="items"  >
+    
+    <ng-template pTemplate="start" >
+        <img class="icono" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Valorant_logo_-_pink_color_version.svg/2560px-Valorant_logo_-_pink_color_version.svg.png" alt="">
     </ng-template>
     <ng-template pTemplate="end">
-        <button pButton pRipple type="button" icon="pi pi-sign-in" class="p-button-rounded p-button-text"></button>
+        <button pButton pRipple type="button" style="color:red" label="Iniciar Sesion" icon="pi pi-sign-in" (click)="mostrarDialogo()" class="p-button-rounded p-button-text"></button>
     </ng-template>
 </p-menubar>
+
+<!--formulario Iniciar sesion-->
+
+<p-dialog header="Ingresar" [(visible)]="modalVisible">
+    
+    Ingrese sesion
+
+    <form [formGroup]="usuarioForm">
+
+        <span class="p-float-label m-4" >
+            <input type="text" pInputText formControlName="nombreUsu">
+            <label for="float-input">Nombre de Usuario</label>
+        </span>
+
+        <span class="p-float-label m-4">
+            <input type="text" pInputText formControlName="contraUsu">
+            <label for="float-input">Contraseña</label>
+        </span>
+        <button pButton pRipple type="button" label="Aceptar" (click)="verificarUsuario()" class="p-button-rounded p-button-text"></button>
+    </form>
+</p-dialog> 

@@ -1,1 +1,57 @@
-<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis delectus laborum et harum non consectetur sunt saepe ea, magni cumque consequuntur ex repellat a maiores exercitationem suscipit molestiae expedita necessitatibus?</p>
+<!-- <div class="container cards">
+    <app-cards [datosCard]="cards"></app-cards>
+</div> -->
+<!-- <div class="container lista">
+    <app-lista [datosCard]="cards"></app-lista>
+</div> -->
+<!-- lista de productos -->
+<p-table {*ngFor="let i of datosCard"} responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body"  let-i>
+        <tr>
+            <img src="{{i.url}}" alt="lista imagen">
+            <p>{{i.nombre}}</p>
+            <td>{{i.precio}}</td>
+            
+        </tr>
+    </ng-template>
+</p-table>
+
+<!-- formulario para editar y agregar producto -->
+<p-button class="p-button-success" label="Agregar Arma" (click)="mostrarDialogo()"></p-button>
+
+
+<p-dialog header="{{textoBoton}}" [(visible)]="modalVisible">
+    Ingrese la Informacion del Arma 
+
+    <form [formGroup]="arma">
+        <span class="p-float-label m-4" >
+            <input type="text" pInputText formControlName="nombreArma">
+            <label for="float-input">Nombre</label>
+        </span>
+        <span class="p-float-label m-4">
+            <input type="text" pInputText formControlName="precioArma">
+            <label for="float-input">Precio</label>
+        </span>
+        <input type="file" pInputText accept="imagen/*" (change)="cargarImagen($event)">
+        <p><b>Imagen serleccionada:</b> </p><img  [src]="imagen" alt="sin imagen" width="50px" height="50px" style="margin: 5px;"><br>
+
+        <p-button class="p-button-success" label="{{textoBoton}}" (click)="cargarDatos()"></p-button>
+    </form>
+    
+</p-dialog>
+
+
+<!-- para eliminar  -->
+<p-dialog header="¡¡¡ADVERTENCIAA!!" [(visible)]="eliminarVisible">
+    <h4>¿Desea eliminar este Arma?</h4>
+    <button pButton pRipple type="button" icon="pi pi-times" (click)="eliminarVisible=false" class="p-button-rounded p-button-danger p-button-outlined"></button>
+    <button style="margin-right:10px;" pButton pRipple type="button" (click)="borrarArma()" icon="pi pi-check" class="p-button-rounded p-button-outlined"></button>
+</p-dialog>

@@ -1,0 +1,18 @@
+<p-table {*ngFor="let i of datosCard"} responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body"  let-i>
+        <tr>
+            <img src="{{i.url}}" alt="lista imagen">
+            <p>{{i.nombre}}</p>
+            <td>{{i.precio}}</td>
+            
+        </tr>
+    </ng-template>
+</p-table>
