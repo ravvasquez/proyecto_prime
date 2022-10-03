@@ -4,3 +4,4 @@ export interface CardsModel {
     url:string;
     idCard:string;
 }
+/*crea el modelo de las cards ;) */

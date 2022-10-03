@@ -6,3 +6,4 @@ export interface Libro {
     idLibro: string
     
 }
+/*esto es de libro :o */

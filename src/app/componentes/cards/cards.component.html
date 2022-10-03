@@ -1,10 +1,10 @@
-<p-card *ngFor="let i of datosCard" [style]="{width: '360px',margin: '20px'}" styleClass="p-card-shadow">
-    <h3>{{i.nombre}}</h3>
+<p-card *ngFor="let i of datosCard" [style]="{width: '360px',margin: '20px'}" styleClass="p-card-shadow"> <!-- el ngFor declara datosCards como i en cards.components-->
+    <h3>{{i.nombre}}</h3> <!-- entre dobles llaves busca en datosCards: nombre  -->
     
     <ng-template pTemplate="header">
-        <img alt="Card" src="{{i.url}}">
+        <img alt="Card" src="{{i.url}}"> <!-- entre dobles llaves busca en datosCards: url  -->
     </ng-template>
     <ng-template pTemplate="footer">
-        <p><b>precio:</b> {{i.precio}}</p>
+        <p><b>precio:</b> {{i.precio}}</p> <!-- entre dobles llaves busca en datosCards: precio  -->
     </ng-template>
 </p-card>

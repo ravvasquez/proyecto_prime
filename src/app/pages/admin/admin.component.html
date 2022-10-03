@@ -1,32 +1,29 @@
-<!-- <div class="container cards">
-    <app-cards [datosCard]="cards"></app-cards>
-</div> -->
-<!-- <div class="container lista">
-    <app-lista [datosCard]="cards"></app-lista>
-</div> -->
-<!-- lista de productos -->
-<p-table {*ngFor="let i of datosCard"} responsiveLayout="scroll">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Imagen</th>
-            <th>Nombre</th>
-            <th>Precio</th>
 
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body"  let-i>
-        <tr>
-            <img src="{{i.url}}" alt="lista imagen">
-            <p>{{i.nombre}}</p>
-            <td>{{i.precio}}</td>
-            
-        </tr>
-    </ng-template>
-</p-table>
+<!-- card productos -->
+<div class="container cards">
+    <p-card *ngFor="let i of cards" [style]="{width: '360px',margin: '20px'}" styleClass="p-card-shadow"> <!-- el ngFor declara datosCards como i solo en cards.components-->
+        <h3>{{i.nombre}}</h3> <!-- busca en datosCards: nombre -->
+        
+        <ng-template pTemplate="header">
+            <img alt="Card" src="{{i.url}}"> <!-- busca en datosCards: url -->
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <p><b>precio:</b> {{i.precio}}</p> <!-- busca en datosCards: precio -->
+
+            <div style="margin-top: 10px;" class="cards_btn">
+                <button style="margin-right:10px; color: rgb(31, 214, 31);"  pButton pRipple type="button" (click)="mostrarEditar(i)" icon="pi pi-pencil" class="p-button-text p-button-outlined"></button>
+                <button pButton pRipple type="button" (click)="mostrarEliminar(i)" icon="pi pi-trash" class="p-button-text p-button-danger p-button-outlined"></button>
+            </div>
+
+        </ng-template>
+    </p-card>
+</div>
 
 <!-- formulario para editar y agregar producto -->
-<p-button class="p-button-success" label="Agregar Arma" (click)="mostrarDialogo()"></p-button>
 
+<div class="container agregar-bnt">
+    <p-button class="p-button-success " label="Agregar Arma" (click)="mostrarDialogo()"></p-button>
+</div>
 
 <p-dialog header="{{textoBoton}}" [(visible)]="modalVisible">
     Ingrese la Informacion del Arma 
@@ -52,6 +49,6 @@
 <!-- para eliminar  -->
 <p-dialog header="¡¡¡ADVERTENCIAA!!" [(visible)]="eliminarVisible">
     <h4>¿Desea eliminar este Arma?</h4>
-    <button pButton pRipple type="button" icon="pi pi-times" (click)="eliminarVisible=false" class="p-button-rounded p-button-danger p-button-outlined"></button>
-    <button style="margin-right:10px;" pButton pRipple type="button" (click)="borrarArma()" icon="pi pi-check" class="p-button-rounded p-button-outlined"></button>
+    <button pButton pRipple type="button" icon="pi pi-times" (click)="eliminarVisible=false" class="p-button-text p-button-danger p-button-outlined btn_eliminar"></button>
+    <button style="margin-right:10px;" pButton pRipple type="button" (click)="borrarArma()" icon="pi pi-check" class="p-button-text p-button-outlined btn_eliminar"></button>
 </p-dialog>

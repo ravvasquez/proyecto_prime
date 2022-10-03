@@ -8,3 +8,28 @@
 .lista{
     margin-top: 30%;
 }
+p-card{
+    width: 30%;
+    display: inline-block;
+}
+
+.agregar-bnt{
+    align-items: right;
+    justify-content: right;
+    text-align: right;
+}
+.TITULO{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.cards_btn{
+    text-align: right;
+    justify-content: right;
+    align-items: right;
+}
+.btn_eliminar{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}

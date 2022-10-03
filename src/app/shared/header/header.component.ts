@@ -48,28 +48,39 @@ export class HeaderComponent implements OnInit {
   
   @Input() datosUsu: Usuario[];
 
-  usuarioForm=new FormGroup({
+  usuarioForm=new FormGroup({ /* se crea formulario  para usuarios */
     nombreUsu:new FormControl('',Validators.required),
     contraUsu:new FormControl('',Validators.required),
   })
 
-  mostrarDialogo(){
-    this.modalVisible=true;
+  mostrarDialogo(){ /* funcion para mostrar form */
+    this.modalVisible=true; 
   }
 
-  verificarUsuario(){
-    this.usuarios.forEach(usuario => {
-      if(usuario.usuario==this.usuarioForm.value.nombreUsu){
 
-        if(usuario.contrasena==this.usuarioForm.value.contraUsu){
+  /* Usuario de firebase 
+  Usuario: lele 
+  Contrasena:lele123 */
+
+  verificarUsuario(){ 
+    this.usuarios.forEach(usuario => {
+      if(usuario.usuario==this.usuarioForm.value.nombreUsu){ /* verifica si el nombre del usuario coincide con el de la base de datos */
+                                          
+        if(usuario.contrasena==this.usuarioForm.value.contraUsu){ /* verifica si la contrasena del usuario coincide con el de la base de datos */
           alert("Ingresaste correctamente")
-          this.adminVisible = true;
-          this.ngOnInit()
+          this.adminVisible = true; /* si todo coincide se muestra la opcion para entrar a la pagina admin */
+          this.ngOnInit() /* se reinicia la pagina */
         }
       }else{
-        alert("Nombre de Usuario o Contraseña Incorrectos")
+        alert("Nombre de Usuario o Contraseña Incorrectos") /* si no coincide se  muestra un cartel de que nombre de usuario o contraseña son incorrectos */
       }
+      
     })
+    this.usuarioForm.setValue({ /* una vez realizada la funcion, se vacia el formulario */
+      nombreUsu:"",
+      contraUsu:"",
+    })
+    this.modalVisible = false; /* se oculta el formulaario una vez realizada la funcion */
   }
 
 
