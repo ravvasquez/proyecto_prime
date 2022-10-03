@@ -95,7 +95,6 @@ export class AdminComponent implements OnInit {
     this.arma.setValue({ /* se guardan los nuevos datos enviados en los atributos del objeto */
       nombreArma:armaSeleccionada.nombre,
       precioArma:armaSeleccionada.precio,
-      url:armaSeleccionada.url
     })
   }
   cargarDatos(){
